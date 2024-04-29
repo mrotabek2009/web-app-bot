@@ -39,7 +39,7 @@ const App = () => {
 	}, [onSendData])
 
 	return (
-		<div className='bg-emerald-400 h-screen'>
+		<div className='bg-slate-800 h-screen'>
 			<TopBar />
 			<InputBox />
 		</div>

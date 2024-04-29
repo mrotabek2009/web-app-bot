@@ -1,14 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from 'react-router-dom'
 
-const TopBarThird = () => {
+const TopBar = () => {
 	return (
-		<div className='min-w-max !flex !justify-center'>
+		<div className='block w-full'>
 			<ul role='tablist' className='flex justify-center gap-x-2'>
-				<li role='presentation' className='shrink basis-0 flex-1 group'>
+				<li role='presentation' className='shrink basis-0 flex-1'>
 					<div className='min-w-10 min-h-10 w-full flex justify-center items-center text-xs align-middle'>
 						<Link to='/'>
-							<span className='size-7 flex justify-center items-center flex-shrink-0 bg-zinc-500 font-medium text-white rounded-full'>
+							<span className='size-10 mt-2 flex justify-center items-center flex-shrink-0 bg-zinc-500 font-medium text-white rounded-full'>
 								1
 							</span>
 						</Link>
@@ -19,10 +19,10 @@ const TopBarThird = () => {
 						</span>
 					</div>
 				</li>
-				<li role='presentation' className='shrink basis-0 flex-1 group'>
+				<li role='presentation' className='shrink basis-0 flex-1'>
 					<div className='min-w-10 min-h-10 w-full flex justify-center items-center text-xs align-middle'>
-						<Link to={'/numbers'}>
-							<span className='size-7 flex justify-center items-center flex-shrink-0 bg-zinc-500 font-medium text-white rounded-full'>
+						<Link to='/numbers'>
+							<span className='size-10 mt-2 flex justify-center items-center flex-shrink-0 bg-zinc-500 font-medium text-white rounded-full'>
 								2
 							</span>
 						</Link>
@@ -33,10 +33,10 @@ const TopBarThird = () => {
 						</span>
 					</div>
 				</li>
-				<li role='presentation' className='shrink  basis-0 flex-1 group'>
+				<li role='presentation' className='shrink  basis-0 flex-1'>
 					<div className='min-w-10 min-h-10 w-full flex justify-center items-center text-xs align-middle'>
 						<Link to={'/comment'}>
-							<span className='size-7 flex justify-center items-center flex-shrink-0 bg-zinc-500 font-medium text-white rounded-full'>
+							<span className='size-10 mt-2 flex justify-center items-center flex-shrink-0 bg-zinc-500 font-medium text-white rounded-full'>
 								3
 							</span>
 						</Link>
@@ -52,4 +52,4 @@ const TopBarThird = () => {
 	)
 }
 
-export default TopBarThird
+export default TopBar
