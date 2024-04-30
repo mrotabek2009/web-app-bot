@@ -12,10 +12,40 @@ const InputBox = () => {
 		if (fromValue === '' || toValue === '' || timeValue === '') {
 			alert("Iltimos hamma ma'lumotlarni kiriting")
 		} else {
-			console.log('From:', fromValue)
-			console.log('To:', toValue)
-			console.log('Time:', timeValue)
+			postDataToServer()
 		}
+	}
+
+	const postDataToServer = () => {
+		const data = {
+			from_region: '',
+			to_region: '',
+			phone: '',
+			additional_phone: '',
+			adult: null,
+			children: null,
+			description: '',
+			full_name: '',
+			leaving_time: '',
+			status: 'new',
+		}
+
+		fetch('https://web.sariqtaxi.uz/orders/create/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok')
+				}
+				console.log('Data sent successfully')
+			})
+			.catch(error => {
+				console.error('There was a problem with your fetch operation:', error)
+			})
 	}
 
 	return (
@@ -80,11 +110,9 @@ const InputBox = () => {
 			<div className='flex gap-2 mt-5'>
 				<ButtonLight text={'Bekor qilish'} />
 				{fromValue !== '' && toValue !== '' && timeValue !== '' && (
-					<Link to={'/numbers'}>
-						<button onClick={handleButtonClick}>
-							<Button text={'Keyingisi'} />
-						</button>
-					</Link>
+					<button onClick={handleButtonClick}>
+						<Button text={'Keyingisi'} />
+					</button>
 				)}
 			</div>
 		</div>

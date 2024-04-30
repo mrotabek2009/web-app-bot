@@ -4,10 +4,8 @@ import Modal from './Modal'
 
 const InputBoxThird = () => {
 	const formatPhoneNumber = value => {
-		// Remove all non-numeric characters
 		const cleanedValue = value.replace(/\D/g, '')
 
-		// Apply phone number formatting
 		const formattedValue = cleanedValue.replace(
 			/(\d{2})(\d{3})(\d{2})(\d{2})/,
 			'$1-$2-$3-$4'

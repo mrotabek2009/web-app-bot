@@ -10,9 +10,6 @@ const InputBox = () => {
 	const handleButtonClick = () => {
 		if (numberOfPassengers === '' || numberOfChildren === '') {
 			alert("Iltimos hamma ma'lumotlarni kiriting")
-		} else {
-			console.log('Number of passengers:', numberOfPassengers)
-			console.log('Number of children:', numberOfChildren)
 		}
 	}
 

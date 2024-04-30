@@ -7,11 +7,22 @@ import InputBox from './components/InputBox'
 const telegram = window.Telegram.WebApp
 
 const App = () => {
-	const [cartItems] = useState([])
+	const [item] = useState([])
 
 	useEffect(() => {
 		telegram.ready()
 	})
+
+	const base_url = 'https://web.sariqtaxi.uz/orders/create/'
+
+	useEffect(() => {
+		const fetchData = () => {
+			fetch(base_url, {
+				method: 'POST',
+				headers: {},
+			})
+		}
+	}, [])
 
 	const onSendData = useCallback(() => {
 		const queryID = telegram.initDataUnsafe?.query_id
@@ -23,14 +34,14 @@ const App = () => {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					products: cartItems,
+					products: item,
 					queryID: queryID,
 				}),
 			})
 		} else {
-			telegram.sendData(JSON.stringify(cartItems))
+			telegram.sendData(JSON.stringify(item))
 		}
-	}, [cartItems])
+	}, [item])
 
 	useEffect(() => {
 		telegram.onEvent('mainButtonClicked', onSendData)
