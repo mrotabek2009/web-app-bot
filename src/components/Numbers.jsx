@@ -3,7 +3,7 @@ import TopBarSecond from './TopBarSecond'
 
 const Numbers = () => {
 	return (
-		<div className='bg-zinc-800 h-screen'>
+		<div className='bg-gray-400 h-screen'>
 			<TopBarSecond />
 			<InputBox />
 		</div>

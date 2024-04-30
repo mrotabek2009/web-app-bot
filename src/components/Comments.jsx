@@ -3,7 +3,7 @@ import TopBarThird from './TopBarThird'
 
 const Comments = () => {
 	return (
-		<div className='bg-stone-50 h-screen'>
+		<div className='bg-gray-300 h-screen'>
 			<TopBarThird />
 			<InputBoxThird />
 		</div>
