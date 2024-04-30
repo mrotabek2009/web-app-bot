@@ -3,6 +3,32 @@ import ButtonLight from './ButtonLight'
 import Modal from './Modal'
 
 const InputBoxThird = () => {
+	const formatPhoneNumber = value => {
+		// Remove all non-numeric characters
+		const cleanedValue = value.replace(/\D/g, '')
+
+		// Apply phone number formatting
+		const formattedValue = cleanedValue.replace(
+			/(\d{2})(\d{3})(\d{2})(\d{2})/,
+			'$1-$2-$3-$4'
+		)
+
+		return formattedValue
+	}
+
+	const handleInputChange = event => {
+		const input = event.target
+		let inputValue = input.value
+
+		const formattedValue = formatPhoneNumber(inputValue)
+
+		if (inputValue.length > 9) {
+			inputValue = inputValue.slice(0, 9)
+		}
+
+		input.value = formattedValue
+	}
+
 	return (
 		<div className='w-80 h-[27rem] bg-white mx-auto rounded-md mt-10 flex flex-col items-center justify-center'>
 			<h1 className='text-3xl text-center font-bold'>YO'LOVCHI MA'LUMOTLARI</h1>
@@ -17,13 +43,18 @@ const InputBoxThird = () => {
 					style={{ resize: 'none' }}
 				></textarea>
 				<label className='text-gray-600' htmlFor='numbers'>
-					Qo'shimcha telefon
+					Telefon raqamingizni kiriting
 				</label>
-				<input
-					type='number'
-					className='border w-72 h-10 mx-auto p-4 remove-arrow'
-					placeholder='+998-90-123-45-67'
-				/>
+				<div className='flex items-center border p-1 px-4'>
+					<p>+998</p>
+					<input
+						type='text'
+						className='border-none h-10 mx-auto p-4 remove-arrow'
+						placeholder='90-123-45-67'
+						onInput={handleInputChange}
+						maxLength={9}
+					/>
+				</div>
 			</div>
 
 			<div className='flex gap-2 mt-5'>

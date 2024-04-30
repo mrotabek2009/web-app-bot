@@ -79,11 +79,13 @@ const InputBox = () => {
 
 			<div className='flex gap-2 mt-5'>
 				<ButtonLight text={'Bekor qilish'} />
-				<Link to='/numbers'>
-					<button onClick={handleButtonClick}>
-						<Button text={'Keyingisi'} />
-					</button>
-				</Link>
+				{fromValue !== '' && toValue !== '' && timeValue !== '' && (
+					<Link to={'/numbers'}>
+						<button onClick={handleButtonClick}>
+							<Button text={'Keyingisi'} />
+						</button>
+					</Link>
+				)}
 			</div>
 		</div>
 	)

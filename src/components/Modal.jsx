@@ -3,12 +3,15 @@ import React from 'react'
 
 export default function Modal() {
 	const [showModal, setShowModal] = React.useState(false)
+
 	return (
 		<>
 			<button
 				className='p-3 bg-zinc-500 text-white rounded-xl'
 				type='button'
-				onClick={() => setShowModal(true)}
+				onClick={() => {
+					setShowModal(true)
+				}}
 			>
 				Tasdiqlash
 			</button>
